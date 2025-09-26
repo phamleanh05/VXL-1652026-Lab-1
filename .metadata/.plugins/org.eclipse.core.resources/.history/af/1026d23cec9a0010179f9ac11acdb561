@@ -100,23 +100,23 @@ int main(void)
 
 	switch(currentState){
 		case 0:
-			HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, SET);
-			HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , RESET);
-			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , RESET);
+			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , SET);
+			HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , SET);
+			HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, RESET);
 			HAL_Delay(5000);
 			currentState = 1;
 			break;
 		case 1:
-			HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, RESET);
-			HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , SET);
-			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , RESET);
+			HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, SET);
+			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , SET);
+			HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , RESET);
 			HAL_Delay(2000);
 			currentState = 2;
 			break;
 		case 2:
-			HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , RESET);
-			HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , RESET);
-			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , SET);
+			HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , SET);
+			HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , SET);
+			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , RESET);
 			HAL_Delay(3000);
 			currentState = 0;
 
