@@ -1,34 +1,6 @@
-21:54:53 **** Incremental Build of configuration Debug for project lab1-ex2 ****
+22:11:27 **** Incremental Build of configuration Debug for project lab1-ex2 ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:102:55: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  102 |  if(HAL_GPIO_ReadPin(LED_RED_GPIO_Port , LED_RED_Pin) == RESET
-      |                                                       ^~
-../Core/Src/main.c:103:60: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  103 |    && HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin) == SET
-      |                                                            ^~
-../Core/Src/main.c:104:63: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  104 |    && HAL_GPIO_ReadPin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin) == SET){
-      |                                                               ^~
-../Core/Src/main.c:110:55: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  110 |  if(HAL_GPIO_ReadPin(LED_RED_GPIO_Port , LED_RED_Pin) == RESET
-      |                                                       ^~
-../Core/Src/main.c:111:60: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  111 |    && HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin) == SET
-      |                                                            ^~
-../Core/Src/main.c:112:63: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  112 |    && HAL_GPIO_ReadPin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin) == SET){
-      |                                                               ^~
-../Core/Src/main.c:118:55: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  118 |  if(HAL_GPIO_ReadPin(LED_RED_GPIO_Port , LED_RED_Pin) == SET
-      |                                                       ^~
-../Core/Src/main.c:119:60: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  119 |    && HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin) == SET
-      |                                                            ^~
-../Core/Src/main.c:120:63: warning: comparison between 'GPIO_PinState' {aka 'enum <anonymous>'} and 'enum <anonymous>' [-Wenum-compare]
-  120 |    && HAL_GPIO_ReadPin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin) == RESET){
-      |                                                               ^~
 arm-none-eabi-gcc -o "lab1-ex2.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/admin/Documents/BK-University/VXL/LAB/lab1-ex2/STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1-ex2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: lab1-ex2.elf
  
@@ -37,15 +9,15 @@ arm-none-eabi-objdump -h -S  lab1-ex2.elf  > "lab1-ex2.list"
 arm-none-eabi-objcopy  -O ihex  lab1-ex2.elf  "lab1-ex2.hex"
 arm-none-eabi-objcopy  -O binary  lab1-ex2.elf  "lab1-ex2.bin"
    text	   data	    bss	    dec	    hex	filename
-   4824	     20	   1572	   6416	   1910	lab1-ex2.elf
+   4668	     20	   1572	   6260	   1874	lab1-ex2.elf
 Finished building: default.size.stdout
  
-Finished building: lab1-ex2.hex
 Finished building: lab1-ex2.bin
+Finished building: lab1-ex2.hex
  
  
 Finished building: lab1-ex2.list
  
 
-21:54:54 Build Finished. 0 errors, 9 warnings. (took 931ms)
+22:11:28 Build Finished. 0 errors, 0 warnings. (took 946ms)
 
