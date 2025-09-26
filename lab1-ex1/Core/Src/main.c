@@ -97,6 +97,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	HAL_GPIO_TogglePin ( GPIOA , GPIO_PIN_5 ) ;
+	if(HAL_GPIO_ReadPin(GPIOA , GPIO_PIN_5) == GPIO_PIN_SET){
+		HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_RESET ) ;
+		HAL_Delay(1000);
+	}
+	else{
+		HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_SET ) ;
+		HAL_Delay(1000);
+	}
   }
   /* USER CODE END 3 */
 }
