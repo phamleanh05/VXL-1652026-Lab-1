@@ -91,13 +91,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint32_t currentState = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
+	uint32_t currentState = 0;
 	switch(currentState){
 		case 0:
 			HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , SET);
