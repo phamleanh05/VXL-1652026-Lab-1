@@ -111,7 +111,7 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_1_Pin, SET);
 		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, RESET);
 		  //LINE 2
-		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, RESET);
+		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
 		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
 		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, SET);
 
