@@ -1,0 +1,9 @@
+main.c:70:6:display7SEG	16	static
+main.c:118:6:display7SEG_2	16	static
+main.c:166:6:setTrafficLight1	16	static
+main.c:183:6:setTrafficLight2	16	static
+main.c:200:6:updateTrafficLights	24	static
+main.c:246:5:main	24	static
+main.c:322:6:SystemClock_Config	72	static
+main.c:358:13:MX_GPIO_Init	32	static
+main.c:408:6:Error_Handler	4	static,ignoring_inline_asm
