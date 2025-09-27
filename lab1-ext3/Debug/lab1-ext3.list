@@ -150,8 +150,8 @@ int main(void)
  800019c:	4858      	ldr	r0, [pc, #352]	; (8000300 <main+0x1b4>)
  800019e:	f000 fc91 	bl	8000ac4 <HAL_GPIO_WritePin>
 		  //LINE 2
-		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
- 80001a2:	2201      	movs	r2, #1
+		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, RESET);
+ 80001a2:	2200      	movs	r2, #0
  80001a4:	f44f 7180 	mov.w	r1, #256	; 0x100
  80001a8:	4855      	ldr	r0, [pc, #340]	; (8000300 <main+0x1b4>)
  80001aa:	f000 fc8b 	bl	8000ac4 <HAL_GPIO_WritePin>
