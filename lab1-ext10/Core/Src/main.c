@@ -163,6 +163,28 @@ void updateClock() {
     int secondPosition = second / 5;
     setNumberOnClock(secondPosition);
 }
+
+void incrementTime() {
+    second++;
+    switch(second) {
+    case 60:
+    	second = 0;
+    	minute++;
+    	switch(minute) {
+		case 60:
+			minute = 0;
+			hour++;
+			switch(hour) {
+			case 24:
+				hour = 0;
+				break;
+			}
+			break;
+    	}
+    	break;
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -202,6 +224,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  incrementTime();
 	  updateClock();
     /* USER CODE BEGIN 3 */
   }
