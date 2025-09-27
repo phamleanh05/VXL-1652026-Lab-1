@@ -55,48 +55,12 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint16_t ledPins[12] = {P1_Pin, P2_Pin, P3_Pin, P4_Pin, P5_Pin, P6_Pin, P7_Pin, P8_Pin, P9_Pin, P10_Pin, P11_Pin, P12_Pin};
-int hour = 0;
-int minute = 0;
-int second = 0;
-
-void clearAllClock(){
-    for (int i = 0; i < 12; i++) {
-        HAL_GPIO_WritePin(GPIOA, ledPins[i], RESET);
-    }
-}
-void setNumberOnClock(int num) {
-    if (num < 0 || num > 11) {
-        return;
-    }
-    HAL_GPIO_WritePin(GPIOA, ledPins[num], SET);
-}
-
-void clearNumberOnClock(int num){
-    if(num < 0 || num > 11){
-    	return;
-    }
-    HAL_GPIO_WritePin(GPIOA, ledPins[num], RESET);
-}
-
-void updateClock() {
-    clearAllClock();
-    for (hour = 0; hour < 12; hour++) {
-        setNumberOnClock(hour);
-
-        for (minute = 0; minute < 60; minute++) {
-            clearAllClock();
-            setNumberOnClock(hour);
-            setNumberOnClock(minute / 5);
-
-            for (second = 0; second < 60; second++) {
-                clearAllClock();
-                setNumberOnClock(hour);
-                setNumberOnClock(minute / 5);
-                setNumberOnClock(second / 5);
-                HAL_Delay(100);
-            }
-        }
-    }
+int blynk = 0;
+void blynkLed() {
+	for (blynk = 0; blynk < 12; blynk++) {
+		HAL_GPIO_WritePin(GPIOA, ledPins[blynk], SET);
+		HAL_Delay(100);
+	}
 }
 /* USER CODE END 0 */
 
@@ -137,7 +101,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  updateClock();
+	  blynkLed();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
