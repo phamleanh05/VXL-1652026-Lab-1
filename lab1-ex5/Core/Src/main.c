@@ -198,43 +198,10 @@ void setTrafficLight2(int state) {
 }
 
 void updateTrafficLights(int counter1, int state1, int counter2, int state2) {
-    // Update Traffic Light 1
-    if (state1 == RED && state2 == GREEN) {
-        if (counter1 >= RED_DURATION) {
-            setTrafficLight1(RED);
-        }
-        display7SEG(counter1);
-    } else if (state1 == GREEN && state2 == RED) {
-        if (counter1 >= GREEN_DURATION) {
-            setTrafficLight1(GREEN);
-        }
-        display7SEG(counter1);
-    } else if (state1 == YELLOW && state2 == RED) {
-        if (counter1 >= YELLOW_DURATION) {
-            setTrafficLight1(YELLOW);
-        }
-        display7SEG(counter1);
-        display7SEG_2(counter2);
-    }
-
-    // Update Traffic Light 2 (Opposite of Traffic Light 1)
-    if (state2 == RED && state1 == GREEN) {
-        if (counter2 >= RED_DURATION) {
-            setTrafficLight2(RED);
-        }
-        display7SEG_2(counter2);
-    } else if (state2 == GREEN && state1 == RED) {
-        if (counter2 >= GREEN_DURATION) {
-            setTrafficLight2(GREEN);
-        }
-        display7SEG_2(counter2);
-    } else if (state2 == YELLOW && state1 == RED) {
-        if (counter2 >= YELLOW_DURATION) {
-            setTrafficLight2(YELLOW);
-        }
-        display7SEG_2(counter2);
-        display7SEG(counter1);
-    }
+	setTrafficLight1(state1);
+	setTrafficLight2(state2);
+	display7SEG(counter1);
+	display7SEG_2(counter2);
 }
 
 /* USER CODE END 0 */
@@ -281,32 +248,45 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  updateTrafficLights(counter1, state1, counter2, state2);
+
 	  counter1--;
 	  counter2--;
-	  if (counter1 == 0) {
-		  if (state1 == RED) {
-			  state1 = GREEN;
-			  counter1 = GREEN_DURATION;
-		  } else if (state1 == GREEN) {
-			  state1 = YELLOW;
-			  counter1 = YELLOW_DURATION;
-		  } else if (state1 == YELLOW) {
-			  state1 = RED;
-			  counter1 = RED_DURATION;
-		  }
+	  switch(counter1) {
+		  case 0:
+			  switch(state1) {
+				  case RED:
+					  state1 = GREEN;
+					  counter1 = GREEN_DURATION;
+					  break;
+				  case GREEN:
+					  state1 = YELLOW;
+					  counter1 = YELLOW_DURATION;
+					  break;
+				  case YELLOW:
+					  state1 = RED;
+					  counter1 = RED_DURATION;
+					  break;
+			  }
+			  break;
 	  }
 
-	  if (counter2 == 0) {
-		  if (state2 == GREEN) {
-			  state2 = YELLOW;
-			  counter2 = YELLOW_DURATION;
-		  } else if (state2 == YELLOW) {
-			  state2 = RED;
-			  counter2 = RED_DURATION;
-		  } else if (state2 == RED) {
-			  state2 = GREEN;
-			  counter2 = GREEN_DURATION;
-		  }
+	  switch(counter2) {
+		  case 0:
+			  switch(state2) {
+				  case RED:
+					  state2 = GREEN;
+					  counter2 = GREEN_DURATION;
+					  break;
+				  case GREEN:
+					  state2 = YELLOW;
+					  counter2 = YELLOW_DURATION;
+					  break;
+				  case YELLOW:
+					  state2 = RED;
+					  counter2 = RED_DURATION;
+					  break;
+			  }
+			  break;
 	  }
 
 	  HAL_Delay(500);
