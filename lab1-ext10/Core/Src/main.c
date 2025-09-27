@@ -55,48 +55,113 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint16_t ledPins[12] = {P1_Pin, P2_Pin, P3_Pin, P4_Pin, P5_Pin, P6_Pin, P7_Pin, P8_Pin, P9_Pin, P10_Pin, P11_Pin, P12_Pin};
-int hour = 0;
-int minute = 0;
-int second = 0;
+int hour = 5;
+int minute = 15;
+int second = 40;
 
 void clearAllClock(){
-    for (int i = 0; i < 12; i++) {
-        HAL_GPIO_WritePin(GPIOA, ledPins[i], RESET);
-    }
+	HAL_GPIO_WritePin(GPIOA, P1_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P2_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P3_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P4_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P5_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P6_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P7_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P8_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P9_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P10_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P11_Pin, RESET);
+	HAL_GPIO_WritePin(GPIOA, P12_Pin, RESET);
 }
 void setNumberOnClock(int num) {
-    if (num < 0 || num > 11) {
-        return;
+    switch(num) {
+    case 0:
+    	HAL_GPIO_WritePin(GPIOA, P1_Pin, SET);
+    	break;
+	case 1:
+		HAL_GPIO_WritePin(GPIOA, P2_Pin, SET);
+		break;
+	case 2:
+		HAL_GPIO_WritePin(GPIOA, P3_Pin, SET);
+		break;
+	case 3:
+		HAL_GPIO_WritePin(GPIOA, P4_Pin, SET);
+		break;
+	case 4:
+		HAL_GPIO_WritePin(GPIOA, P5_Pin, SET);
+		break;
+	case 5:
+		HAL_GPIO_WritePin(GPIOA, P6_Pin, SET);
+		break;
+	case 6:
+		HAL_GPIO_WritePin(GPIOA, P7_Pin, SET);
+		break;
+	case 7:
+		HAL_GPIO_WritePin(GPIOA, P8_Pin, SET);
+		break;
+	case 8:
+		HAL_GPIO_WritePin(GPIOA, P9_Pin, SET);
+		break;
+	case 9:
+		HAL_GPIO_WritePin(GPIOA, P10_Pin, SET);
+		break;
+	case 10:
+		HAL_GPIO_WritePin(GPIOA, P11_Pin, SET);
+		break;
+	case 11:
+		HAL_GPIO_WritePin(GPIOA, P12_Pin, SET);
+		break;
     }
-    HAL_GPIO_WritePin(GPIOA, ledPins[num], SET);
 }
 
 void clearNumberOnClock(int num){
-    if(num < 0 || num > 11){
-    	return;
-    }
-    HAL_GPIO_WritePin(GPIOA, ledPins[num], RESET);
+	switch(num) {
+	case 0:
+		HAL_GPIO_WritePin(GPIOA, P1_Pin, RESET);
+		break;
+	case 1:
+		HAL_GPIO_WritePin(GPIOA, P2_Pin, RESET);
+		break;
+	case 2:
+		HAL_GPIO_WritePin(GPIOA, P3_Pin, RESET);
+		break;
+	case 3:
+		HAL_GPIO_WritePin(GPIOA, P4_Pin, RESET);
+		break;
+	case 4:
+		HAL_GPIO_WritePin(GPIOA, P5_Pin, RESET);
+		break;
+	case 5:
+		HAL_GPIO_WritePin(GPIOA, P6_Pin, RESET);
+		break;
+	case 6:
+		HAL_GPIO_WritePin(GPIOA, P7_Pin, RESET);
+		break;
+	case 7:
+		HAL_GPIO_WritePin(GPIOA, P8_Pin, RESET);
+		break;
+	case 8:
+		HAL_GPIO_WritePin(GPIOA, P9_Pin, RESET);
+		break;
+	case 9:
+		HAL_GPIO_WritePin(GPIOA, P10_Pin, RESET);
+		break;
+	case 10:
+		HAL_GPIO_WritePin(GPIOA, P11_Pin, RESET);
+		break;
+	case 11:
+		HAL_GPIO_WritePin(GPIOA, P12_Pin, RESET);
+		break;
+	}
 }
 
 void updateClock() {
     clearAllClock();
-    for (hour = 0; hour < 12; hour++) {
-        setNumberOnClock(hour);
-
-        for (minute = 0; minute < 60; minute++) {
-            clearAllClock();
-            setNumberOnClock(hour);
-            setNumberOnClock(minute / 5);
-
-            for (second = 0; second < 60; second++) {
-                clearAllClock();
-                setNumberOnClock(hour);
-                setNumberOnClock(minute / 5);
-                setNumberOnClock(second / 5);
-                HAL_Delay(100);
-            }
-        }
-    }
+    setNumberOnClock(hour);
+    int minutePosition = minute / 5;
+    setNumberOnClock(minutePosition);
+    int secondPosition = second / 5;
+    setNumberOnClock(secondPosition);
 }
 /* USER CODE END 0 */
 
