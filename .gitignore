@@ -1,1 +1,28 @@
-.metadata
+# Eclipse/STM32CubeIDE workspace files
+.metadata/
+.settings/
+.project
+.cproject
+
+# Build outputs
+Debug/
+Release/
+build/
+
+# Generated files
+*.d
+*.o
+*.su
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+
+# Log files
+*.log
+
+# Temporary files
+*~
+*.tmp
+*.bak
