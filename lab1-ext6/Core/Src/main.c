@@ -57,11 +57,72 @@ static void MX_GPIO_Init(void);
 uint16_t ledPins[12] = {P1_Pin, P2_Pin, P3_Pin, P4_Pin, P5_Pin, P6_Pin, P7_Pin, P8_Pin, P9_Pin, P10_Pin, P11_Pin, P12_Pin};
 int blynk = 0;
 void blynkLed() {
-	for (blynk = 0; blynk < 12; blynk++) {
-		HAL_GPIO_WritePin(GPIOA, ledPins[blynk], SET);
-		HAL_Delay(100);
-	}
+    HAL_GPIO_WritePin(GPIOA, ledPins[blynk], GPIO_PIN_SET);
+    HAL_Delay(100);
+    blynk++;
+
+    switch(blynk) {
+        case 1:
+            HAL_GPIO_WritePin(GPIOA, ledPins[1], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 2:
+            HAL_GPIO_WritePin(GPIOA, ledPins[2], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 3:
+            HAL_GPIO_WritePin(GPIOA, ledPins[3], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 4:
+            HAL_GPIO_WritePin(GPIOA, ledPins[4], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 5:
+            HAL_GPIO_WritePin(GPIOA, ledPins[5], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 6:
+            HAL_GPIO_WritePin(GPIOA, ledPins[6], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 7:
+            HAL_GPIO_WritePin(GPIOA, ledPins[7], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 8:
+            HAL_GPIO_WritePin(GPIOA, ledPins[8], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 9:
+            HAL_GPIO_WritePin(GPIOA, ledPins[9], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 10:
+            HAL_GPIO_WritePin(GPIOA, ledPins[10], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk++;
+            break;
+        case 11:
+            HAL_GPIO_WritePin(GPIOA, ledPins[11], GPIO_PIN_SET);
+            HAL_Delay(100);
+            blynk = 0;
+            break;
+        default:
+            blynk = 0;
+            break;
+    }
 }
+
 /* USER CODE END 0 */
 
 /**
