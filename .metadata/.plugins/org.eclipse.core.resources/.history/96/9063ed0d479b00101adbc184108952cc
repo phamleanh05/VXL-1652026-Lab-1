@@ -112,8 +112,8 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, RESET);
 		  //LINE 2
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, RESET);
-		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
-		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, SET);
+		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2,Pin, SET);
+		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2,Pin, SET);
 
 		  stateChange++;
 		  if (stateChange >= 5){
@@ -121,7 +121,6 @@ int main(void)
 			  stateChange = 0;
 		  }
 		  break;
-
 	  case L1_YELLOW_L2_RED:
 		  //LINE 1
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin, SET);
@@ -129,16 +128,14 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, SET);
 		  //LINE 2
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, RESET);
-		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
-		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, SET);
+		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2,Pin, SET);
+		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2,Pin, SET);
 
 		  stateChange++;
 		  if(stateChange >= 2){
 			  currentState = L1_RED_L2_GREEN;
 			  stateChange = 0;
 		  }
-		  break;
-
 	  case L1_RED_L2_GREEN:
 		  //LINE 1
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin, RESET);
@@ -146,16 +143,14 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, SET);
 		  //LINE 2
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
-		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
-		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, RESET);
+		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2,Pin, SET);
+		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2,Pin, RESET);
 
 		  stateChange++;
 		  if(stateChange >= 5){
 			  currentState = L1_RED_L2_YELLOW;
 			  stateChange = 0;
 		  }
-		  break;
-
 	  case L1_RED_L2_YELLOW:
 		  //LINE 1
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin, RESET);
@@ -163,15 +158,14 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, SET);
 		  //LINE 2
 		  HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
-		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, RESET);
-		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, SET);
+		  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2,Pin, RESET);
+		  HAL_GPIO_WritePin(GPIOA, LED_GREEN_2,Pin, SET);
 
 		  stateChange++;
 		  if(stateChange >= 2){
 			  currentState = L1_GREEN_L2_RED;
 			  stateChange = 0;
 		  }
-		  break;
 	  }
 
 	HAL_Delay(1000);
