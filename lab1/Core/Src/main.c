@@ -254,15 +254,23 @@ int main(void)
 	  while (counter1 == 0){
 		  if(state1 == RED){
 			  counter1 = GREEN_DURATION;
+			  counter1--;
 		  }
-		  else counter1 = RED_DURATION;
+		  else {
+			  counter1 = RED_DURATION;
+			  counter1--;
+		  }
 	  }
 
 	  while (counter2 == 0){
-		  if(state2 == RED){
+		  if(state2 == GREEN){
 			  counter2 = RED_DURATION;
+			  counter2--;
 		  }
-		  else counter1 = GREEN_DURATION;
+		  else {
+			  counter2 = GREEN_DURATION;
+			  counter2--;
+		  }
 	  }
 
 	  HAL_Delay(500);
