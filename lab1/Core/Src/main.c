@@ -68,7 +68,7 @@ void setTrafficLight2(int state);
 void updateTrafficLights(int counter1, int state1, int state2, int counter2);
 
 void display7SEG(int number) {
-    if (number < 0 || number > 9) return;
+    if (number < 0 || number > 9) number = 0;
 
     switch (number){
 	case 0:
@@ -116,7 +116,7 @@ void display7SEG(int number) {
 }
 
 void display7SEG_2(int number) {
-    if (number < 0 || number > 9) return;
+    if (number < 0 || number > 9) number = 0;
 
     switch (number){
 	case 0:
@@ -251,6 +251,19 @@ int main(void)
 
 	  counter1--;
 	  counter2--;
+	  while (counter1 == 0){
+		  if(state1 == RED){
+			  counter1 = GREEN_DURATION;
+		  }
+		  else counter1 = RED_DURATION;
+	  }
+
+	  while (counter2 == 0){
+		  if(state2 == RED){
+			  counter2 = RED_DURATION;
+		  }
+		  else counter1 = GREEN_DURATION;
+	  }
 
 	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
