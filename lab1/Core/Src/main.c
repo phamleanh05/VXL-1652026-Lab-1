@@ -204,6 +204,10 @@ void updateTrafficLights(int counter1, int state1, int counter2, int state2) {
 	display7SEG_2(counter2);
 }
 
+int getDuration(int state) {
+    int durations[] = {RED_DURATION, GREEN_DURATION, YELLOW_DURATION};
+    return durations[state];
+}
 /* USER CODE END 0 */
 
 /**
@@ -251,27 +255,8 @@ int main(void)
 
 	  counter1--;
 	  counter2--;
-	  while (counter1 == 0){
-		  if(state1 == RED){
-			  counter1 = GREEN_DURATION;
-			  counter1--;
-		  }
-		  else {
-			  counter1 = RED_DURATION;
-			  counter1--;
-		  }
-	  }
-
-	  while (counter2 == 0){
-		  if(state2 == GREEN){
-			  counter2 = RED_DURATION;
-			  counter2--;
-		  }
-		  else {
-			  counter2 = GREEN_DURATION;
-			  counter2--;
-		  }
-	  }
+	  counter1 = counter1 ? counter1 : (state1 = (state1 + 1) % 3, getDuration(state1));
+	  counter2 = counter2 ? counter2 : (state2 = (state2 + 1) % 3, getDuration(state2));
 
 	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
