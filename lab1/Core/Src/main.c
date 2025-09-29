@@ -164,24 +164,21 @@ void updateClock() {
     setNumberOnClock(secondPosition);
 }
 
-void incrementTime() {
+void incrementTime(void) {
     second++;
-    switch(second) {
-    case 60:
-    	second = 0;
-    	minute++;
-    	switch(minute) {
-		case 60:
-			minute = 0;
-			hour++;
-			switch(hour) {
-			case 24:
-				hour = 0;
-				break;
-			}
-			break;
-    	}
-    	break;
+
+    if (second >= 60) {
+        second = 0;
+        minute++;
+
+        if (minute >= 60) {
+            minute = 0;
+            hour++;
+
+            if (hour >= 24) {
+                hour = 0;
+            }
+        }
     }
 }
 
